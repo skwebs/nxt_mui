@@ -1,19 +1,10 @@
 import { AppBar, Box, Button, IconButton, Toolbar, Typography, Tooltip, Avatar, InputBase } from "@mui/material";
 import { styled, alpha } from '@mui/material/styles';
 import { Menu as MenuIcon, Search as SearchIcon } from "@mui/icons-material";
-import Link from 'next/link'
+import Link from 'next/link' 
 import {useRouter} from 'next/router'
 
 
-/*
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-*/
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -57,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 
-const AppBarComponent = ({ openDrawer, setOpenDrawer, menuItems }) => {
+export default function Header ({ openDrawer, setOpenDrawer, menuItems }){
   const toggleDrawer = open => event => {
     if (
       event &&
@@ -78,9 +69,10 @@ const AppBarComponent = ({ openDrawer, setOpenDrawer, menuItems }) => {
   return (
     <>
       <Box>
+        {/*<AppBar color="transparent" sx={{backdropFilter:"blur(20px)"}}>*/}
         <AppBar>
           <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, mr:2 }}>
+            <Typography onClick={() => handleRoute('/')} variant="h6" component="div" sx={{ flexGrow: 1, mr:2 }}>
             AMA
           </Typography>
           <Search>
@@ -107,11 +99,13 @@ const AppBarComponent = ({ openDrawer, setOpenDrawer, menuItems }) => {
               <MenuIcon />
             </IconButton>
           </Box>*/}
+          
             <Box sx={{ display:{xs:'none', md:'block'}, mr : 2 }}>
               {Object.keys(menuItems).map((text,index) => (
-                <Button style={{ backgroundColor: (menuItems[text].link === location) ? `rgba(0,0,0,0.2)` : '' }} onClick={() => handleRoute(menuItems[text].link)} key={index} color="inherit">{text}</Button>
+                <Button className={(menuItems[text].link === location) ? `active-link` : '' } onClick={() => handleRoute(menuItems[text].link)} key={index} >{text}</Button>
               ))}
             </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={toggleDrawer(true)} sx={{ p: 0 }}>
@@ -127,4 +121,4 @@ const AppBarComponent = ({ openDrawer, setOpenDrawer, menuItems }) => {
   );
 };
 
-export default AppBarComponent;
+

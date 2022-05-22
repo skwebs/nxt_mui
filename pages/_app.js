@@ -1,12 +1,12 @@
 import '../styles/globals.css'
-import Navigation from '../components/Navigation'
-//import AppBarComponent from '../components/RespAppBar'
+import Layout from '../components/Layout'
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
-    <Navigation/>
-    {/*<AppBarComponent/>*/}
-    <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
     )
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AppBarComponent from "./AppBarComponent";
+import Header from "./Header";
 import Sidebar from "./Sidebar";
 import {
   Home as HomeIcon,
@@ -56,7 +56,7 @@ const Navigation = () => {
   return (
     <>
       <Sidebar menuItems={menuItems} openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
-      <AppBarComponent menuItems={menuItems} openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+      <Header menuItems={menuItems} openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
       {/* <ResponsiveAppBar /> */}
     </>
   );
