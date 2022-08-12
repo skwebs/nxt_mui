@@ -79,19 +79,20 @@ export default function Header({ openDrawer, setOpenDrawer, menuItems }) {
               {/** this blank space to fill and send login button to right side of the nav*/}
             </Box>
 
-            <Box sx={{ display: { xs: 'none', md: 'block' }, mr: 2 }}>
+            <Box sx={{ display: { xs: 'none', md: 'block' }}}>
               {Object.keys(menuItems).map((text, index) => (
                 <Button className={`header-link-btn ` + ((menuItems[text].link === location) ? `active-link` : '')} onClick={() => handleRoute(menuItems[text].link)} key={index} >{text}</Button>
               ))}
             </Box>
 
-            <Search>
+            <Search sx={{ mx: 2 }}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                
               />
             </Search>
 
