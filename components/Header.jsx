@@ -75,6 +75,16 @@ export default function Header({ openDrawer, setOpenDrawer, menuItems }) {
             <Typography onClick={() => handleRoute('/')} variant="h6" component="div" sx={{ flexGrow: 1, mr: 2 }}>
               AMA
             </Typography>
+            <Box component="div" sx={{ flexGrow: 1 }}>
+              {/** this blank space to fill and send login button to right side of the nav*/}
+            </Box>
+
+            <Box sx={{ display: { xs: 'none', md: 'block' }, mr: 2 }}>
+              {Object.keys(menuItems).map((text, index) => (
+                <Button className={`header-link-btn ` + ((menuItems[text].link === location) ? `active-link` : '')} onClick={() => handleRoute(menuItems[text].link)} key={index} >{text}</Button>
+              ))}
+            </Box>
+
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -84,26 +94,18 @@ export default function Header({ openDrawer, setOpenDrawer, menuItems }) {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search>
-            <Box component="div" sx={{ flexGrow: 1 }}>
-              {/** this blank space to fill and send login button to right side of the nav*/}
-            </Box>
+
+
             <Box sx={{ display: { xs: 'block', md: 'none' } }}>
               <IconButton
                 size="large"
                 edge="end"
                 color="inherit"
                 aria-label="menu"
-                sx={{ ml: 2 }}
                 onClick={toggleDrawer(true)}
                 onKeyDown={() => toggleDrawer(true)}>
                 <MenuIcon />
               </IconButton>
-            </Box>
-
-            <Box sx={{ display: { xs: 'none', md: 'block' }, mr: 2 }}>
-              {Object.keys(menuItems).map((text, index) => (
-                <Button className={`header-link-btn `+((menuItems[text].link === location) ? `active-link` : '')} onClick={() => handleRoute(menuItems[text].link)} key={index} >{text}</Button>
-              ))}
             </Box>
 
             {/* <Box sx={{ flexGrow: 0 }}>

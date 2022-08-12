@@ -23,6 +23,10 @@ a {
   margin-left: 0.25em;
   margin-right: 0.25em;
 }
+.header-link-btn:active{
+  color: rgba(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.2);
+}
 .header-link-btn:hover{
   background-color: rgba(0, 0, 0, 0.1);
 }
