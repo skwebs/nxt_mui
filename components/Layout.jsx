@@ -3,8 +3,7 @@ import Navigation from './Navigation'
 import Footer from './Footer'
 
 export default function Layout({children}){
-  return <Box id="app-body" 
-  sx={{ minHeight:{xs:`calc(100vh - 56px)`, md:`calc(100vh - 140px)`},
+  return <Box id="app-body" sx={{ minHeight:{xs:`100vh`},
   display:'flex',
   flexDirection:'column'
   }} >
@@ -19,3 +18,4 @@ export default function Layout({children}){
     </Box>
   </Box>
 }
+
